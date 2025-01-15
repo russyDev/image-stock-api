@@ -8,13 +8,13 @@ const app = Express();
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send({ message: 'Hello World 2' });
+    res.send({ message: 'Hello World' });
 });
 
-app.get('/img/:filename', (req, res) => {
+app.get('/img/random', (req, res) => {
     try {
-        const file = req.params.filename;
-        const imagePath = path.resolve('images', file);
+        const imgNumber = Math.floor(Math.random() * 15) + 1;
+        const imagePath = path.resolve('images', `${imgNumber}.jpeg`);
         res.sendFile(imagePath);
     } catch(e) {
         res.send('error');
