@@ -1,0 +1,12 @@
+version: '3.1'
+services:
+  server:
+    container_name: image-stock-server
+    image: node:20
+    stdin_open: true
+    ports:
+      - 3011:3000
+    volumes:
+      - ./:/var/www/
+    command: ["sh", "-c", "cd /var/www && npm install && node index.js"]
+    restart: on-failure
