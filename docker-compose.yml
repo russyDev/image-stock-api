@@ -10,12 +10,12 @@ services:
       - ./:/var/www/
     command: ["sh", "-c", "cd /var/www && npm install && node index.js"]
     restart: on-failure
-  nginx:
-    image: nginx:latest
-    container_name: nginx
-    ports:
-      - "80:80"
-    depends_on:
-      - server
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+  #nginx:
+   # image: nginx:latest
+    #container_name: nginx
+    #ports:
+     # - "80:80"
+    #depends_on:
+     # - server
+    #volumes:
+    #  - ./nginx.conf:/etc/nginx/nginx.conf
